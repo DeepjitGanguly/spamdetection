@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Classifier</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #f2f2f2;
+}
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #888;
+}
+textarea {
+    width: 90%;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Spam Message Classifier</h2>
+        <form method="POST" action="/predict">
+            <textarea name="message" rows="5" cols="50" placeholder="Enter your message here..." required>{{ message if message else '' }}</textarea><br><br>
+            <button type="submit">Check</button>
+        </form>
+        {% if result %}
+            <h3>Prediction: {{ result }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
